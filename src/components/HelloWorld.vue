@@ -15,6 +15,7 @@
         error-message="手机号格式错误"
       />
     </van-cell-group>
+
   </div>
 </template>
 
@@ -27,6 +28,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+$color:red;
+.hello{
+  background-color: $color;
+}
 
 </style>
