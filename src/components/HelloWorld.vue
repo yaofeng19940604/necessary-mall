@@ -29,9 +29,8 @@ export default {
 </script>
 
 <style lang="scss">
-$color:red;
 .hello{
-  background-color: $color;
+ background-color: $color;
 }
 
 </style>

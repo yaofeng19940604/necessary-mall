@@ -31,3 +31,19 @@ import { Button } from 'vant';
 
 Vue.use(Button);
 ```
+### sass的使用
+1. 全局变量
+```shell
+在variables.scss设置全局变量；
+在组件中即可在scss中直接使用
+如
+<style lang="scss">
+.hello{
+  background-color: $color;
+}
+</style>
+```
+2. 混合器声明
+```shell
+全局混合器暂时还没有配置
+```
