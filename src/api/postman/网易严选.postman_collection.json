@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "99ddce31-f37b-4322-842b-af50003032ea",
+		"name": "网易严选",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "首页index",
+			"item": [
+				{
+					"name": "首页头部数据API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/xhr/index/index.json",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"xhr",
+								"index",
+								"index.json"
+							]
+						},
+						"description": "包含\n\n轮播图\n\n小格子\n\nAD广告\n\n限时抢购\n\n榜单\n\n品牌热销直供"
+					},
+					"response": []
+				},
+				{
+					"name": "首页为你推荐API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/xhr/rcmd/index.json?lastItemId=0&size=20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"xhr",
+								"rcmd",
+								"index.json"
+							],
+							"query": [
+								{
+									"key": "lastItemId",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								}
+							]
+						},
+						"description": "API接受两个参数\n\nlastItemId 获取哪个商品后的数据\n\nsize 获取商品个数"
+					},
+					"response": []
+				},
+				{
+					"name": "首页今日必拼API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pin/min/item/recommendV2.json?orderType=2&size=16",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pin",
+								"min",
+								"item",
+								"recommendV2.json"
+							],
+							"query": [
+								{
+									"key": "orderType",
+									"value": "2"
+								},
+								{
+									"key": "size",
+									"value": "16"
+								}
+							]
+						},
+						"description": "此API接受两个参数\n\norderType 为页数\n\nsize 为获取商品个数"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "分类页面",
+			"item": [
+				{
+					"name": "获取一级分类",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/xhr/list/categorySimple",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"xhr",
+								"list",
+								"categorySimple"
+							]
+						},
+						"description": "获取分类页面一级分类边栏数据"
+					},
+					"response": []
+				},
+				{
+					"name": "获取二级分类",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/xhr/list/subCate.json?categoryId=11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"xhr",
+								"list",
+								"subCate.json"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "11"
+								}
+							]
+						},
+						"description": "通过一级分类ID获取二级分类\n\n接受一个参数\n\ncategoryId 一级分类ID"
+					},
+					"response": []
+				},
+				{
+					"name": "获取二级分类下商品",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/xhr/list/l2Items2.json?categoryL1Id=11&categoryL2Id=9999954631397",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"xhr",
+								"list",
+								"l2Items2.json"
+							],
+							"query": [
+								{
+									"key": "categoryL1Id",
+									"value": "11"
+								},
+								{
+									"key": "categoryL2Id",
+									"value": "9999954631397"
+								}
+							]
+						},
+						"description": "此API接受两个参数\n\ncategoryL1Id 一级分类ID\n\ncategoryL2Id 二级分类ID"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "商品详情",
+			"item": [
+				{
+					"name": "获取商品详情API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/xhr/item/detail.json?itemId=3439006",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"xhr",
+								"item",
+								"detail.json"
+							],
+							"query": [
+								{
+									"key": "itemId",
+									"value": "3439006"
+								}
+							]
+						},
+						"description": "此API接受一个参数\n\nitemId 商品ID"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
