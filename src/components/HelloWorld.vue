@@ -30,7 +30,8 @@ export default {
 
 <style lang="scss">
 .hello{
- background-color: $color;
+  background-color: $color;
+  @include hline(5px yellow dashed,20px)
 }
 
 </style>
