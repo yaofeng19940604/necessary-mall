@@ -7,14 +7,21 @@
 基于vant组件库开发
 ```
 ### 运行项目
+1. 进入apimdh文件夹，打开终端命令行工具，安装依赖并运行虚拟服务器
 
-1. 在已有文件夹内安装依赖：(当前文件夹名就是项目名)
+```shell
+cnpm install
+
+node app.js
+```
+
+2. 在总文件夹内安装依赖：(当前文件夹名就是项目名)
 
 ```shell
 cnpm install
 ```
 
-2. 启动服务
+3. 启动服务
 
 ```shell
 npm run serve
@@ -45,5 +52,14 @@ Vue.use(Button);
 ```
 2. 混合器声明
 ```shell
-全局混合器暂时还没有配置
+在mixin.scss设置全局混合器；
+在组件中即可在scss中直接使用
+如
+<style lang="scss">
+.hello{
+  background-color: $color;
+  @include hline(5px yellow dashed,20px)
+}
+</style>
+```
 ```
