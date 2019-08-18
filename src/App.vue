@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <categories></categories>
+    <PageMall></PageMall>
   </div>
 </template>
 
 <script>
-import categories from './components/goods/categories.vue'
+import PageMall from "./components/PageMall.vue"
 
 export default {
   name: 'app',
   components: {
-    categories,
+    PageMall,
   }
 }
 </script>
