@@ -53,16 +53,16 @@ export default {
 
 <style lang="scss">
 .hello{
+  width: 100%;
   background-color:$color;
-  height: 100vh;
   @include hline(5px yellow dashed,20px)
 }
+.sidebar{
+  float: left;
+}
 .categorywrap{
-  position: relative;
-  top: 0;
-  left: 85px;
+  float: left;
   div{
-    float: left;
     width:10%;
   }
 }
