@@ -26,7 +26,17 @@ cnpm install
 ```shell
 npm run serve
 ```
-
+### 样式适配问题
+1. 介绍
+```shell
+本项目安装了rem适配依赖，会自动将px转换成rem,如果不想自动转换可写成大写PX或者Px。
+依赖是lib-flexible以及postcss-px2rem。
+```
+2. 样式设置
+```shell
+第一步，将设计稿调为375px宽度，在iPhone6中显示效果。
+第二步，如果在设计稿中元素尺寸为100px,那么将元素设置为50px。即为设计稿的一半
+```
 ### Vant组件库的使用
 1. 引用组件
 ```shell
@@ -37,6 +47,11 @@ import Vue from 'vue';
 import { Button } from 'vant';
 
 Vue.use(Button);
+```
+2. 组件样式问题
+```shell
+因为安装了rem适配依赖,本项目会自动将px转换成rem单位，所以写样式的时候自己注意一下。
+会有什么影响暂时不明确，应该是问题不大。
 ```
 ### sass的使用
 1. 全局变量

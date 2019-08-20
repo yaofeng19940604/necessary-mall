@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
+import 'lib-flexible'
+import './css/base.css'
 import { Sidebar, SidebarItem } from 'vant';
 import { Button } from 'vant'
 import { Field } from 'vant'

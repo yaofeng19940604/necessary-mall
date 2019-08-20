@@ -6,7 +6,7 @@
     <div class="categorywrap">
       <div v-for="item in secondCategoryList" :key="item.id">
         <img :src="item.bannerUrl"/>
-        <span>{{item.name}}</span>
+        <a href="#">{{item.name}}</a>
       </div>
     </div>
   </div>
