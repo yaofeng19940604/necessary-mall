@@ -38,9 +38,9 @@ npm run serve
 第二步，如果在设计稿中元素尺寸为100px,那么将元素设置为50px。即为设计稿的一半
 ```
 ### Vant组件库的使用
-1. 引用组件
+1. 全局按需引用vant组件
 ```shell
-在main.js进行配置，按需引用；
+在main.js进行全局配置，按需引用，即任何组件均可直接使用vant组件；
 如button的引用
 
 import Vue from 'vue';
@@ -48,7 +48,19 @@ import { Button } from 'vant';
 
 Vue.use(Button);
 ```
-2. 组件样式问题
+2. 局部按需引用vant组件
+```shell
+即直接在组件内部引用组件并注册
+如
+import { Button } from 'vant';
+export default{
+  components:{
+    "van-button":Button,
+  }
+}
+```
+
+3. 组件样式问题
 ```shell
 因为安装了rem适配依赖,本项目会自动将px转换成rem单位，所以写样式的时候自己注意一下。
 会有什么影响暂时不明确，应该是问题不大。
