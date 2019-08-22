@@ -1,20 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Home from './views/Home.vue'
-// import Playlist from './views/Playlist.vue'
-// import Recommend from './views/Recommend.vue'
-// import Hot from './views/Hot.vue'
-// import Search from './views/Search.vue'
+import HomePage from './view/HomePage.vue'
+import ClassifyPage from './view/ClassifyPage.vue'
+import CartPage from './view/CartPage.vue'
+import UserPage from './view/UserPage.vue'
 
 Vue.use(Router)
-
 export default new Router({
   routes: [
-    // {path: "/", component: Home, children: [
-    //   {path: "recommend", component: Recommend},
-    //   {path: "hot", component: Hot},
-    //   {path: "search", component: Search},
-    // ]},
-    // {path: "/playlist/:id", component: Playlist},
+    {path: "/", component: HomePage},
+    {path: "/ClassifyPage", component: ClassifyPage},
+    {path: "/CartPage", component: CartPage},
+    {path: "/UserPage", component: UserPage},
   ]
 })

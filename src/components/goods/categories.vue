@@ -1,19 +1,20 @@
 <template>
-  <div class="hello">
+  <div class="wrap">
     <van-sidebar class="sidebar" v-model="activeKey">
         <van-sidebar-item :title="item.name" v-for="item in categoryList" :key="item.id"/>
     </van-sidebar>
-    <div class="categorywrap">
-      <div v-for="item in secondCategoryList" :key="item.id">
+    <van-grid class="right-category" square :border="false" :column-num="3">
+      <van-grid-item class="item" v-for="item in secondCategoryList" :key="item.id">
         <img :src="item.bannerUrl"/>
-        <a href="#">{{item.name}}</a>
-      </div>
-    </div>
+        <p>{{item.name}}</p>
+      </van-grid-item>
+    </van-grid>
   </div>
 </template>
 
 <script>
 import APIgoods from "../../api/goods.js"
+import { Grid, GridItem } from 'vant';
 export default {
     data:function(){
         return{
@@ -22,18 +23,19 @@ export default {
             secondCategoryList:[],
         }
     },
+    components: {
+      "van-grid":Grid,
+      "van-grid-item":GridItem,
+    },
     props: {
 
     },
-    // methods:{
-    //   tabChange(ev){
-    //     console.log(ev);
-    //     console.log(this.activeKey)
-    //   }
-    // },
+    methods:{
+      
+    },
     // 用计算属性比函数节省性能
     watch:{
-      activeKey:function(newVal, oldVal){
+      activeKey:function(newVal){
         let id = this.categoryList[newVal].id;
         APIgoods.getSecondCategories(id).then(res=>{
           this.secondCategoryList = res.data.category.subCategoryList
@@ -52,18 +54,30 @@ export default {
 </script>
 
 <style lang="scss">
-.hello{
-  width: 100%;
-  background-color:$color;
-  @include hline(5px yellow dashed,20px)
-}
-.sidebar{
-  float: left;
-}
-.categorywrap{
-  float: left;
-  div{
-    width:10%;
+.wrap{
+  display: flex;
+  .sidebar{
+    flex: 0;
+    .van-sidebar-item{
+      width: 80px;
+    }
+  }
+  .right-category{
+    flex: 1;
+    overflow: auto;
+    .item{
+      .van-grid-item__content--square{
+        top:30px;
+      }
+      img{
+        width: 70px;
+      }
+      p{
+        text-align: center;
+        font-size:14px;
+        line-height: 20px;
+      }
+    }
   }
 }
 </style>

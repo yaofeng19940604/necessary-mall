@@ -1,11 +1,10 @@
 <template>
   <div>
-   <Categories></Categories>
+    HomePage
   </div>
 </template>
 
 <script>
-import Categories from './goods/categories.vue'
 export default {
   data(){
     return {
@@ -13,7 +12,7 @@ export default {
     }
   },
   components: {
-    Categories,
+
   }
 }
 </script>

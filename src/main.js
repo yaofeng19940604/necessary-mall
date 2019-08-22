@@ -4,12 +4,8 @@ import router from './router'
 import store from './store'
 import 'lib-flexible'
 import './css/base.css'
-import { Sidebar, SidebarItem } from 'vant';
-import { Button } from 'vant'
-import { Field } from 'vant'
 
-Vue.use(Button)
-Vue.use(Field)
+import { Sidebar, SidebarItem } from 'vant';
 Vue.use(Sidebar);
 Vue.use(SidebarItem);
 
