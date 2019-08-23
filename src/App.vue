@@ -6,29 +6,25 @@
     <div class="nav-bot">
       <van-grid clickable :column-num="4">
         <van-grid-item
-          @click="onClick(0)"
-          :class="{ac:showIndex==0}"
+          class="item ac"
           icon="wap-home"
           text="首页"
           to="/"
         />
         <van-grid-item
-          @click="onClick(1)"
-          :class="{ac:showIndex==1}"
+          class="item"
           icon="shop-o"
           text="分类"
           to="/ClassifyPage"
         />
         <van-grid-item
-          @click="onClick(2)"
-          :class="{ac:showIndex==2}"
+          class="item"
           icon="shopping-cart-o"
           text="购物车"
           to="/CartPage"
         />
         <van-grid-item
-          @click="onClick(3)"
-          :class="{ac:showIndex==3}"
+          class="item"
           icon="manager-o"
           text="我的"
           to="/UserPage"
@@ -40,6 +36,7 @@
 
 <script>
 import { Grid, GridItem } from 'vant';
+import $ from 'jquery'
 export default {
   name: 'app',
   components: {
@@ -48,14 +45,17 @@ export default {
   },
   data:function(){
     return{
-      showIndex:0,
+
     }
   },
   methods:{
-    onClick(index){
-      this.showIndex = index;
-    },
-  }
+
+  },
+  mounted() {
+    $(".item").click(function(){
+        $(this).addClass("ac").siblings().removeClass("ac");
+    })
+  },
 }
 </script>
 
