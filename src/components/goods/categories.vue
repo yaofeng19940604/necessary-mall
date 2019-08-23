@@ -1,9 +1,11 @@
 <template>
   <div class="wrap">
-    <van-sidebar class="sidebar" v-model="activeKey">
-        <van-sidebar-item :title="item.name" v-for="item in categoryList" :key="item.id"/>
-    </van-sidebar>
-    <van-grid class="right-category" square :border="false" :column-num="3">
+    <div class="sidebar">
+      <van-sidebar v-model="activeKey">
+          <van-sidebar-item :title="item.name" v-for="item in categoryList" :key="item.id"/>
+      </van-sidebar>
+    </div>
+    <van-grid class="right-category" :border="false" :column-num="3">
       <van-grid-item class="item" v-for="item in secondCategoryList" :key="item.id">
         <img :src="item.bannerUrl"/>
         <p>{{item.name}}</p>
@@ -56,14 +58,15 @@ export default {
 <style lang="scss">
 .wrap{
   display: flex;
+  height: 610px;
+  overflow: hidden;
   .sidebar{
-    flex: 0;
-    .van-sidebar-item{
-      width: 80px;
-    }
+    width: 85px;
+    overflow: auto;
+    flex-shrink: 0;
   }
   .right-category{
-    flex: 1;
+    flex-grow: 1;
     overflow: auto;
     .item{
       .van-grid-item__content--square{

@@ -67,12 +67,13 @@ export default {
   height: 100vh;
   .content{
     flex: 1;
-    overflow:auto;
+    overflow:hidden;
   }
   .nav-bot{
     border-top:1Px #e4e4e4 solid;
     border-bottom:1Px #e4e4e4 solid;
     flex: 0;
+    height: 114px;
     .van-grid-item__content{
       background-color:transparent;
       padding-top: 6px;
@@ -86,7 +87,12 @@ export default {
       font-size: 14px;
     }
     .ac{
-      background-color: pink;
+      .van-grid-item__icon{
+        color: #854b98;
+      }
+      .van-grid-item__text{
+        color: #854b98;
+      }
     }
   }
 }
