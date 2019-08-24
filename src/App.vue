@@ -61,7 +61,7 @@ export default {
 
 <style lang="scss">
 #app{
-  background-color: #fff;
+  background-color: $main-bc;
   display: flex;
   flex-flow:column nowrap;
   height: 100vh;

@@ -8,7 +8,6 @@ import './css/base.css'
 import { Sidebar, SidebarItem } from 'vant';
 Vue.use(Sidebar);
 Vue.use(SidebarItem);
-
 Vue.config.productionTip = false
 
 new Vue({

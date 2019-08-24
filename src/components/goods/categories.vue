@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="category-wrap">
     <div class="sidebar">
       <van-sidebar v-model="activeKey">
           <van-sidebar-item :title="item.name" v-for="item in categoryList" :key="item.id"/>
@@ -56,10 +56,10 @@ export default {
 </script>
 
 <style lang="scss">
-.wrap{
+.category-wrap{
   display: flex;
   height: 610px;
-  overflow: hidden;
+  background-color:#fff;
   .sidebar{
     width: 85px;
     overflow: auto;
