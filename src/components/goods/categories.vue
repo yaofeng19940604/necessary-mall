@@ -58,7 +58,7 @@ export default {
 <style lang="scss">
 .category-wrap{
   display: flex;
-  height: 610px;
+  height: 100%;
   background-color:#fff;
   .sidebar{
     width: 85px;
