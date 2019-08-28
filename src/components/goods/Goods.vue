@@ -1,10 +1,10 @@
 <template>
   <div class="Goods-wrap">
     <a class="goods" href="#">
-      <img :src="floor.categoryItem.scenePicUrl"/>
-      <p class="title">{{floor.categoryItem.simpleDesc}}</p>
-      <p class="name">{{floor.categoryItem.name}}</p>
-      <p class="price">{{"￥"+floor.categoryItem.retailPrice}}</p>
+      <img :src="goodsVal.primaryPicUrl"/>
+      <p class="title">{{goodsVal.simpleDesc}}</p>
+      <p class="name">{{goodsVal.name}}</p>
+      <p class="price">{{"￥"+goodsVal.retailPrice}}</p>
     </a>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
 
     },
     props: {
-      imgUrl
+      goodsVal:Object,
     },
     methods:{
       

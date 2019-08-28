@@ -6,7 +6,7 @@
       </van-sidebar>
     </div>
     <van-grid class="right-category" :border="false" :column-num="3">
-      <van-grid-item class="item" v-for="item in secondCategoryList" :key="item.id">
+      <van-grid-item class="item" :to="`/SubClassifyPage/${categoryList[activeKey].id}/${item.id}`" v-for="item in secondCategoryList" :key="item.id">
         <img :src="item.bannerUrl"/>
         <p>{{item.name}}</p>
       </van-grid-item>

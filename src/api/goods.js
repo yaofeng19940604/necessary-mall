@@ -7,7 +7,7 @@ let APIgoods = {
     getSecondCategories(id){
         return axios.get("xhr/list/subCate.json?categoryId="+id).then(res => res.data)
     },
-    getCategoryGoods(id1,id2){
+    getSubCategoryGoods(id1,id2){
         return axios.get(`/xhr/list/l2Items2.json?categoryL1Id=${id1}&categoryL2Id=${id2}`).then(res => res.data)
     },
     getGoodsDetails(goodsId){
