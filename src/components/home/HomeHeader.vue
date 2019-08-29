@@ -6,24 +6,24 @@
           <img :src="img"/>
         </van-swipe-item>
       </van-swipe>
-      <div class="banner-bottom">
+      <div class="banner-bottom clearfix">
         <div class="item fl"><van-icon name="shop-o"/>自营品牌</div>
         <div class="item center fl"><van-icon name="certificate"/>30天无忧退换货</div>
         <div class="item fr"><van-icon name="after-sale"/>48小时快速退款</div>
       </div>
     </div>
-    <div class="home-category-wrap">
+    <div class="home-category-wrap clearfix">
       <div class="item" v-for="(item,index) in homecategory" :key="index">
         <img :src="item.picUrls[0]">
         <p>{{item.title}}</p>
       </div>
     </div>
-    <div class="home-brand-wrap">
+    <div class="home-brand-wrap clearfix">
       <div class="top">
         <div class="title fl">品牌制造商直供</div>
         <a class="more fr" href="#">更多></a>
       </div>
-      <div class="brand-wrap">
+      <div class="brand-wrap clearfix">
         <a href="#" class="item" v-for="(item,index) in homebrand" :key="index" :style="'backgroundImage:url('+item.picUrls[0]+')'">
           <h5>{{item.title}}</h5>
           <span></span>
@@ -89,7 +89,6 @@ export default {
   .home-category-wrap{
     padding: 0 5px;
     width: 345px;
-    height: 159px;
     .item{
       width: 46px;
       margin:0 0 6px 28px;

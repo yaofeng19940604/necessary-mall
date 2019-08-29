@@ -1,22 +1,22 @@
 <template>
   <div class="category-wrap">
     <div class="sidebar">
-      <van-sidebar v-model="activeKey">
-          <van-sidebar-item :title="item.name" v-for="(item,index) in categoryList" :key="index"/>
+      <van-sidebar v-model="activeKey" @change="onchang">
+          <van-sidebar-item :title="item.name" v-for="item in categoryList" :key="item.id"/>
       </van-sidebar>
     </div>
-    <van-grid class="right-category" :border="false" :column-num="3">
-      <van-grid-item class="item" :to="`/SubClassifyPage/${categoryList[activeKey].id}/${item.id}`" v-for="item in secondCategoryList" :key="item.id">
-        <img :src="item.bannerUrl"/>
+    <div class="right-category">
+      <a class="item" :href="`#/SubClassifyPage/${categoryList[activeKey].id}/${item.id}`" v-for="item in secondCategoryList" :key="item.id">
+        <img :src="item.prettyBannerUrl"/>
         <p>{{item.name}}</p>
-      </van-grid-item>
-    </van-grid>
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
 import APIgoods from "../../api/goods.js"
-import { Grid, GridItem } from 'vant';
+import { Sidebar, SidebarItem } from 'vant';
 export default {
     data:function(){
         return{
@@ -26,23 +26,27 @@ export default {
         }
     },
     components: {
-      "van-grid":Grid,
-      "van-grid-item":GridItem,
+      "van-sidebar":Sidebar,
+      "van-sidebar-item":SidebarItem,
     },
     props: {
 
     },
     methods:{
-      
-    },
-    // 用计算属性比函数节省性能
-    watch:{
-      activeKey:function(newVal){
-        let id = this.categoryList[newVal].id;
+      onchang(index){
+        let id = this.categoryList[index].id;
         APIgoods.getSecondCategories(id).then(res=>{
           this.secondCategoryList = res.data.category.subCategoryList
         });
-      }
+      },
+    },
+    watch:{
+      // activeKey:function(newVal){
+      //   let id = this.categoryList[newVal].id;
+      //   APIgoods.getSecondCategories(id).then(res=>{
+      //     this.secondCategoryList = res.data.category.subCategoryList
+      //   });
+      // }
     },
     created(){
         APIgoods.getCategories().then(res=>{
@@ -69,14 +73,15 @@ export default {
     flex-grow: 1;
     overflow: auto;
     .item{
-      .van-grid-item__content--square{
-        top:30px;
-      }
+      display: inline-block;
+      width: 95px;
+      text-align: center;
+      vertical-align: middle;
       img{
-        width: 70px;
+        width: 95px;
       }
       p{
-        text-align: center;
+        height: 40px;
         font-size:14px;
         line-height: 20px;
       }
