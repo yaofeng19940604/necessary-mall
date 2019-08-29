@@ -22,7 +22,7 @@ export default {
 </script>
 <style lang="scss">
 .home-wrap{
-  height: 610px;
+  height: 100%;
   padding: 0 10px;
   overflow: auto;
 }
