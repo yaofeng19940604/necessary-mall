@@ -13,12 +13,12 @@
       <div class="mayasset-ico">
         <div class="quantity">
           <ul class="quantity-public">
-            <li v-for="item in quantity">{{item.num}}</li>
+            <li v-for="(item,index) in quantity" :key="index">{{item.num}}</li>
           </ul>
         </div>
         <div class="quantity-name">
           <ul class="quantity-public">
-            <li v-for="item in quantity">{{item.title}}</li>
+            <li v-for="(item,index) in quantity" :key="index">{{item.title}}</li>
           </ul>
         </div>
       </div>

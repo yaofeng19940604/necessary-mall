@@ -1,21 +1,27 @@
 <template>
   <div>
-      <goodsSwipe/>
+      <goodsSwipe :goodsApiId ="goodsId"/>
   </div>
 </template>
 <script>
 import goodsSwipe from "../components/goodsDetails/details";
 export default {
   data: function() {
-    return {};
+    return {
+      goodsId:null,
+    };
   },
   components: {
     goodsSwipe
   },
   props: {},
-  methods: {}
+  methods: {},
+  created() {
+    this.goodsId = this.$route.params.id;
+  },
 };
 </script>
 
 <style lang="scss">
+
 </style>

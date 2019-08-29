@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="goods-details-wrap">
     <van-swipe class="van-swipe" @change="onchange">
       <van-swipe-item class="van-swipe-item" v-for="item in goodsSwipe" :key="item">
         <img :src="item" />
@@ -48,10 +48,9 @@
         </div>
         <div class="goods-qualit-title">
           {{goodsName}}
-          <hr>
+          <hr />
           <div v-for="(item,index) in featureList" :key="index">{{item.text1}},{{item.text2}}</div>
-          <hr>
-
+          <hr />
         </div>
       </div>
     </div>
@@ -59,7 +58,7 @@
 </template>
 
 <script>
-import { Swipe, SwipeItem, Icon,Divider  } from "vant";
+import { Swipe, SwipeItem, Icon } from "vant";
 import GoodsAPI from "../../api/goods";
 export default {
   data: function() {
@@ -77,10 +76,11 @@ export default {
   components: {
     "van-swipe": Swipe,
     "van-swipe-item": SwipeItem,
-    "van-icon": Icon,
-    "van-divider" :Divider
+    "van-icon": Icon
   },
-  props: {},
+  props: {
+    goodsApiId: String
+  },
   methods: {
     onchange(index) {
       this.current = index;
@@ -91,7 +91,7 @@ export default {
     }
   },
   created() {
-    GoodsAPI.getGoodsDetails(3439006).then(res => {
+    GoodsAPI.getGoodsDetails(this.goodsApiId).then(res => {
       let obj = res.data.itemDetail;
       for (const key in obj) {
         this.goodsSwipe.push(obj[key]);
@@ -101,104 +101,105 @@ export default {
       this.goodsPrice = res.data.retailPrice;
       this.simpleDesc = res.data.simpleDesc;
       this.featureList = res.data.featureList;
-      console.log(res.data);
     });
   }
 };
 </script>
 
 <style lang="scss">
-.van-swipe {
-  position: relative;
-  .van-swipe-item {
-    width: 100%;
-    img {
-      width: 100vw;
-      height: 375px;
-    }
-  }
-  .custom-indicator {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: block;
-    width: 30px;
-    height: 15px;
-    color: white;
-    background-color: #c0bec1;
-    text-align: center;
-    line-height: 15px;
-    border-radius: 4px;
-  }
-}
-.goodsText {
-  padding: 12px;
-  .goodsText-top {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    .text-top-price {
-      color: red;
-      line-height: 30px;
-      font-size: 16px;
-      font-weight: 600;
-    }
-    .text-top-collection {
-      .collection {
-        margin-left: 13px;
-      }
-      line-height: 30px;
-      font-size: 10px;
-      .collection-like {
-        transition: all 1s;
+.goods-details-wrap {
+  .van-swipe {
+    position: relative;
+    .van-swipe-item {
+      width: 100%;
+      img {
+        width: 100vw;
+        height: 375px;
       }
     }
-  }
-  .production {
-    line-height: 30px;
-    color: #c2c0c1;
-    font-size: 10px;
-    text-align: right;
-  }
-  .goods-introduce {
-    .introduce-title {
-      font-size: 15px;
-      line-height: 30px;
-      font-weight: 600;
+    .custom-indicator {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: block;
+      width: 30px;
+      height: 15px;
+      color: white;
+      background-color: #c0bec1;
+      text-align: center;
+      line-height: 15px;
+      border-radius: 4px;
     }
-    .detailed-introduction {
-      color: #a0a0a0;
-      line-height: 17px;
+  }
+  .goodsText {
+    padding: 12px;
+    .goodsText-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .text-top-price {
+        color: red;
+        line-height: 30px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .text-top-collection {
+        .collection {
+          margin-left: 13px;
+        }
+        line-height: 30px;
+        font-size: 10px;
+        .collection-like {
+          transition: all 1s;
+        }
+      }
+    }
+    .production {
+      line-height: 30px;
+      color: #c2c0c1;
+      font-size: 10px;
+      text-align: right;
+    }
+    .goods-introduce {
+      .introduce-title {
+        font-size: 15px;
+        line-height: 30px;
+        font-weight: 600;
+      }
+      .detailed-introduction {
+        color: #a0a0a0;
+        line-height: 17px;
+        font-size: 10px;
+      }
+    }
+  }
+  .goods-ensure {
+    .goods-ensure-ul {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+      background-color: rgba(206, 207, 136, 0.144);
+      box-shadow: 0px -10px 10px 3px rgba(206, 207, 136, 0.103),
+        0px 10px 10px 3px rgba(206, 207, 136, 0.103);
+      color: #aa9277;
+      line-height: 30px;
       font-size: 10px;
     }
   }
-}
-.goods-ensure {
-  .goods-ensure-ul {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-    background-color: rgba(206, 207, 136, 0.144);
-    box-shadow: 0px -10px 10px 3px rgba(206, 207, 136, 0.103),
-      0px 10px 10px 3px rgba(206, 207, 136, 0.103);
-    color: #aa9277;
-    line-height: 30px;
-    font-size: 10px;
-  }
-}
-.goods-quality {
-  padding: 24px;
-  background-color: #efeff1;
-  line-height: 27px;
-  font-size: 13px;
-  .goods-title {
-    display: flex;
-    justify-content: space-between;
-    .goods-qualit-name {
-      width: 50vw;
-    }
-    .goods-qualit-title {
-      width: 50vw;
+  .goods-quality {
+    padding: 24px;
+    background-color: #efeff1;
+    line-height: 27px;
+    font-size: 13px;
+    .goods-title {
+      display: flex;
+      justify-content: space-between;
+      .goods-qualit-name {
+        width: 50vw;
+      }
+      .goods-qualit-title {
+        width: 50vw;
+      }
     }
   }
 }

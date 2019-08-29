@@ -2,7 +2,7 @@
   <div class="category-wrap">
     <div class="sidebar">
       <van-sidebar v-model="activeKey">
-          <van-sidebar-item :title="item.name" v-for="item in categoryList" :key="item.id"/>
+          <van-sidebar-item :title="item.name" v-for="(item,index) in categoryList" :key="index"/>
       </van-sidebar>
     </div>
     <van-grid class="right-category" :border="false" :column-num="3">

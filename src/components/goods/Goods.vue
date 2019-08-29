@@ -1,6 +1,6 @@
 <template>
   <div class="Goods-wrap">
-    <a class="goods" href="#">
+    <a class="goods" :href="`#/GoodsDetails/${goodsVal.id}`">
       <img :src="goodsVal.primaryPicUrl"/>
       <p class="title">{{goodsVal.simpleDesc}}</p>
       <p class="name">{{goodsVal.name}}</p>

@@ -6,6 +6,7 @@ import ClassifyPage from './view/ClassifyPage.vue'
 import CartPage from './view/CartPage.vue'
 import UserPage from './view/UserPage.vue'
 import SubClassifyPage from "./view/SubClassifyPage.vue"
+import GoodsDetails from "./view/GoodsDetails.vue"
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -16,6 +17,7 @@ export default new Router({
       {path: "CartPage", component: CartPage},
       {path: "UserPage", component: UserPage},
     ]},
-    {path: "/SubClassifyPage/:id1/:id2", component: SubClassifyPage}
+    {path: "/SubClassifyPage/:id1/:id2", component: SubClassifyPage},
+    {path: "/GoodsDetails/:id", component: GoodsDetails},
   ]
 })
